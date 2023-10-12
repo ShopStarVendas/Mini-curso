@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Página 12 - HTML e Python</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        .code-container {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .code-button {
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #next-button {
+            display: block;
+            margin: 1000 auto;
+            padding: 10px 10px;
+            font-size: 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tópicos de HTML e Python</h1>
+
+        <h2>Tópicos de HTML</h2>
+        
+        <div class="code-container">
+            <h3>&lt;title&gt;</h3>
+            <p>O elemento &lt;title&gt; define o título do documento HTML.</p>
+            <button class="code-button" onclick="copyToClipboard('code1')">Copy Code</button>
+        </div>
+        
+        <div class="code-container">
+            <h3>&lt;script&gt;</h3>
+            <p>O elemento &lt;script&gt; é usado para inserir ou referenciar um script em um documento HTML.</p>
+            <button class="code-button" onclick="copyToClipboard('code2')">Copy Code</button>
+        </div>
+
+        <!-- Adicione mais tópicos de HTML conforme necessário -->
+
+        <h2>Tópicos de Python</h2>
+        
+        <div class="code-container">
+            <h3>input()</h3>
+            <p>A função input() é usada para receber uma entrada de usuário.</p>
+            <button class="code-button" onclick="copyToClipboard('code3')">Copy Code</button>
+        </div>
+        
+        <div class="code-container">
+            <h3>print()</h3>
+            <p>A função print() é usada para exibir uma saída na tela.</p>
+            <button class="code-button" onclick="copyToClipboard('code4')">Copy Code</button>
+        </div>
+
+        <!-- Adicione mais tópicos de Python conforme necessário -->
+    </div>
+    <a id="next-button" href="pagina13.html">Próximo</a>
+    <script>
+        function copyToClipboard(elementId) {
+            var element = document.querySelector("#" + elementId);
+            var range = document.createRange();
+            range.selectNodeContents(element);
+            var selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            document.execCommand("copy");
+            selection.removeAllRanges();
+        }
+    </script>
+</body>
+</html>

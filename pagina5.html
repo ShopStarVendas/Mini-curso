@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aprenda Programação - Resumo da Estrutura HTML</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-top: 40px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        pre {
+            font-size: 18px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            overflow-x: auto;
+            text-align: left;
+        }
+
+        .button-container {
+            margin: 30px;
+        }
+
+        .button-container a {
+            text-decoration: none; /* Remove o sublinhado do link */
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Remove o zoom */
+        @viewport {
+            max-zoom: 1.0;
+        }
+    </style>
+    <script>
+        function gerarNovoExemplo() {
+            const preElement = document.querySelector("pre");
+            const novoExemplo = `
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                    &lt;title&gt;Título da Página&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;h1&gt;Título Principal&lt;/h1&gt;
+                    &lt;p&gt;Parágrafo de exemplo.&lt;/p&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+            `;
+
+            preElement.innerHTML = novoExemplo;
+        }
+    </script>
+</head>
+<body>
+    <h1>Resumo da Estrutura HTML</h1>
+    <p>O HTML (HyperText Markup Language) é a linguagem de marcação usada para estruturar o conteúdo de uma página da web. Aqui está um exemplo básico de estrutura HTML:</p>
+
+    <pre>
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        &lt;head&gt;
+            &lt;title&gt;Título da Página&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;h1&gt;Título Principal&lt;/h1&gt;
+            &lt;p&gt;Parágrafo de exemplo.&lt;/p&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </pre>
+
+    <div class="button-container">
+        <a href="pagina6.html"><button id="next-button">Próxima Página</button></a>
+        <button onclick="gerarNovoExemplo()">Gerar Exemplo</button>
+    </div>
+</body>
+</html>

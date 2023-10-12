@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adiciona meta tag para viewport -->
+    <title>Página 8 - Python Tutorial</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Vincula a folha de estilos externa -->
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Altera a direção do flex container para column */
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            background-color: #111;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-top: 10px;
+        }
+
+        .tip {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a {
+            text-decoration: none; /* Remove sublinhado de todos os links */
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
+            }
+        }
+
+        .rating {
+            margin-top: 20px;
+        }
+
+        .star {
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tutorial de Python para Iniciantes</h1>
+        <h2>Lições Adicionais</h2>
+        <div class="tip">
+            <h3>Dica</h3>
+            <p>Antes de prosseguir, é recomendável que você já esteja familiarizado com os conceitos básicos de programação.</p>
+        </div>
+        <h3>Lições:</h3>
+        <ol>
+            <li>
+                <h4>Manipulação de Listas</h4>
+                <p>Aprenda a criar, acessar e manipular listas em Python.</p>
+            </li>
+            <li>
+                <h4>Loops</h4>
+                <p>Explore diferentes tipos de loops, como o loop <code>for</code> e o loop <code>while</code>.</p>
+            </li>
+            <li>
+                <h4>Funções</h4>
+                <p>Saiba como definir e usar funções em Python para organizar seu código.</p>
+            </li>
+            <li>
+                <h4>Tratamento de Exceções</h4>
+                <p>Aprenda a lidar com erros e exceções durante a execução do seu programa.</p>
+            </li>
+            <li>
+                <h4>Manipulação de Arquivos</h4>
+                <p>Descubra como ler e escrever em arquivos usando Python.</p>
+            </li>
+        </ol>
+        
+        
+        <a href="pagina9.html" class="button">Próxima Página</a>
+        <h1>AVALIE MEU SITE</h1>
+        <div class="rating">
+            <span class="star" onclick="rate(5)">1⭐</span>
+            <span class="star" onclick="rate(4)">2⭐</span>
+            <span class="star" onclick="rate(3)">3⭐</span>
+            <span class="star" onclick="rate(2)">4⭐</span>
+            <span class="star" onclick="rate(1)">5⭐</span>
+        </div>
+    </div>
+    
+    <script>
+        function rate(stars) {
+            if (stars >= 3) {
+                var message = encodeURIComponent("Olá Luciano, gostei muito do seu site! Obrigado!");
+                window.location.href = "https://api.whatsapp.com/send?phone=+5519999015294&text=" + message;
+            }
+        }
+    </script>
+</body>
+</html>

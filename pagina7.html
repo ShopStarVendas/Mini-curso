@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Editor de HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Adiciona a tag meta para a viewport -->
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto; /* Centraliza o conteúdo */
+            padding: 10px; /* Adiciona um espaçamento interno */
+        }
+        .editor {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: 1px solid #888;
+            font-family: monospace;
+            width: 100%;
+            height: 300px;
+        }
+        .button {
+            padding: 10px 50px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: block; /* Faz o botão ocupar a largura total */
+            margin: 0 auto; /* Centraliza o botão */
+        }
+        #terminal-container {
+            background-color: #222;
+            padding: 10px;
+        }
+        #terminal {
+            background-color: #000;
+            color: white;
+            padding: 8px;
+            font-family: monospace;
+            width: 100%;
+            height: 200px;
+            overflow-y: scroll;
+        }
+        #run-terminal-button {
+            padding: 10px 50px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block; /* Faz o botão ocupar a largura total */
+            margin: 0 auto; /* Centraliza o botão */
+        }
+        #menu {
+            background-color: #222;
+            padding: 10px;
+        }
+        a#next-button {
+    padding: 10px 20px;
+            font-size: 20px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div id="terminal-container">
+        <textarea id="terminal"></textarea>
+        <div>
+            <input type="text" id="command" placeholder="Digite um comando e pressione Enter">
+            <button class="button" id="run-terminal-button">Run</button>
+        </div>
+    </div>
+    
+    <div id="menu">
+        <p>COMANDOS DISPONÍVEIS!<br> '/start' - próxima página ✓ <br> '/novo' - limpa o código HTML ✓ <br>  '/regras' - regras de uso ✓<br> '/aviso' - aviso importante ✓ 🚨<br> 🆘 DIGITE (start) PARA IR PARA PRÓXIMA PÁGINA🆘<br>NÃO ESQUEÇA DE USAR O / ANTES DOS COMANDOS EXEMPLO "/start"</p>
+    </div>
+
+    <div class="container">
+        <h1>Editor de HTML</h1>
+        <p>Cole seu código HTML abaixo e clique em "Testar" para ver o resultado.</p>
+        <textarea class="editor" id="html-editor"></textarea>
+        <br>
+        <button class="button" id="run-button">Testar</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        document.getElementById('run-button').addEventListener('click', function() {
+            var htmlCode = document.getElementById('html-editor').value;
+            
+            if (verificarCodigoSeguro(htmlCode)) {
+                var iframe = document.createElement('iframe');
+                iframe.style.width = '100%';
+                iframe.style.height = '400px';
+                
+                var resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = '';
+                resultDiv.appendChild(iframe);
+                
+                var doc = iframe.contentDocument || iframe.contentWindow.document;
+                doc.open();
+                doc.write(htmlCode);
+                doc.close();
+            } else {
+                mostrarRespostaCodigoMalicioso();
+            }
+        });
+
+        function verificarCodigoSeguro(code) {
+            return !(/<script>/i.test(code));
+        }
+
+        function mostrarRespostaCodigoMalicioso() {
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Atividade maliciosa detectada. Seu código foi bloqueado.';
+        }
+
+        var terminal = document.getElementById('terminal');
+        var commandInput = document.getElementById('command');
+        var runTerminalButton = document.getElementById('run-terminal-button');
+        
+        runTerminalButton.addEventListener('click', function() {
+            processarComando(commandInput.value);
+        });
+
+        commandInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                processarComando(commandInput.value);
+            }
+        });
+
+        function processarComando(comando) {
+            if (comando.startsWith('/start')) {
+                window.location.href = 'pagina8.html';
+            } else if (comando === '/sistema') {
+                mostrarInformacoesDoSistema();
+            } else if (comando === '/novo') {
+                document.getElementById('html-editor').value = '';
+            } else if (comando === '/regras') {
+                mostrarRegras();
+            } else if (comando === '/aviso') {
+                mostrarAviso();
+            } else if (comando === 'start') {
+                mostrarMensagemNoTerminal('Por favor, use o comando com uma barra na frente, ex: /start');
+            } else {
+                mostrarMensagemNoTerminal('Comando desconhecido: ' + comando);
+            }
+
+            commandInput.value = '';
+        }
+
+        function mostrarInformacoesDoSistema() {
+            mostrarMensagemNoTerminal('Sistema: Linux');
+        }
+
+        function mostrarRegras() {
+            mostrarMensagemNoTerminal('Regras: Somente HTML é permitido.');
+        }
+
+        function mostrarAviso() {
+            mostrarMensagemNoTerminal('Aviso: Este site é monitorado 24 horas por dia. Boa sorte na sua atividade. Qualquer comportamento ilegal será relatado às autoridades.');
+        }
+
+        function mostrarMensagemNoTerminal(mensagem) {
+            terminal.value += '\n' + mensagem;
+        }
+    </script>
+    <a id="next-button" class="next-button" href="pagina8.html">Próximo</a>
+</body>
+</html>
